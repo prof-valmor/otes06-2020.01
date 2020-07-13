@@ -1,18 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:background="#DD7C7C"
+    android:gravity="center"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Esse é um Fragment"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="Esse é um Fragment" />
+
     <Button
+        android:id="@+id/btOkay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btOkay"
-        android:text="botao Okay 1 2 3"
-        android:gravity="right"/>
+        android:gravity="right"
+        android:text="botao Okay 1 2 3" />
 </LinearLayout>
