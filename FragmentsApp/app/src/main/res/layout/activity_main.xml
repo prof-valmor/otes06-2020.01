@@ -19,20 +19,15 @@
         android:max="2"
         android:progress="0" />
 
-<!--    <fragment-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:id="@+id/fragText"-->
-<!--    android:name="br.udesc.fragmentsapp.TextFragment"/>-->
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/frame1"/>
-
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/frame2"/>-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btNext"
+        android:gravity="right"
+        android:text="Next"/>
 
 </LinearLayout>

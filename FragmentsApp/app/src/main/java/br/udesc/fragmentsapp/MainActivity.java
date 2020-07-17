@@ -7,10 +7,21 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
+
+import br.udesc.modelo.Cliente;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private SeekBar bar;
+
+    public void setBar(int progress) {
+        bar.setProgress(progress);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         ft.add(R.id.frame1, new TextFragment());
         ft.commit();
         //
-        SeekBar seekBar = findViewById(R.id.seek1);
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        bar = findViewById(R.id.seek1);
+        bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 Log.d(TAG, "onProgressChanged: " + progress + " bool: " + b);
@@ -58,6 +69,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //
+        Button btNext = findViewById(R.id.btNext);
+        btNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int progress = bar.getProgress();
+                progress++;
+                if(progress > bar.getMax()) {
+                    progress = 0;
+                }
+                bar.setProgress(progress);
+            }
+        });
     }
 }

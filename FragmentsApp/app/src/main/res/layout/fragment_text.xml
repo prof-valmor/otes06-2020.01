@@ -12,10 +12,10 @@
         android:gravity="center"
         android:text="Esse é um Fragment" />
 
-    <Button
-        android:id="@+id/btOkay"
+    <EditText
+        android:id="@+id/edtNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="botao Okay 1 2 3" />
+        android:text="Digite o Nome" />
+
 </LinearLayout>

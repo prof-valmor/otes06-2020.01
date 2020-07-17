@@ -10,15 +10,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Qual seu endereco?" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#B81F1F"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        tools:src="@tools:sample/backgrounds/scenic"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:inputType="textPostalAddress"
+        android:id="@+id/edtAddress"/>
 
 </FrameLayout>
