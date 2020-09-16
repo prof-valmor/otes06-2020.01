@@ -1,84 +1,69 @@
 package br.edu.oprofvalmor.contatos;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.Observable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import br.edu.oprofvalmor.cliente2.modelo.ListaUsuarios;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ArrayList<Contato> listaContatos = new ArrayList<>(1);
-
-    public HashMap<String, List<String>> listaMensagens = new HashMap<>(1);
-
-
-    class MyAdapter extends BaseAdapter {
-
-        // override other abstract methods here
-
-        @Override
-        public int getCount() {
-            //return Model.getInstance().getListaUsuarios().size();
-            return listaContatos.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-//            return Model.getInstance().getListaUsuarios().get(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup container) {
-            if (convertView == null) {
-                convertView = getLayoutInflater().inflate(R.layout.linha_usuario, container, false);
-            }
-            Contato contato = listaContatos.get(position);
-
-            ((TextView) convertView.findViewById(R.id.txtHorario)).setText(contato.horario);
-            ((TextView) convertView.findViewById(R.id.txtUserName)).setText(contato.nome);
-
-            return convertView;
-        }
-    }
+    private ViewPager2 viewPager;
+    private FragmentStateAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
-        listaContatos.add(new Contato("Valmor", "10:12"));
-        listaContatos.add(new Contato("Leticia", "08:12"));
-        listaContatos.add(new Contato("Matheus", "09:12"));
-        listaContatos.add(new Contato("Davi", "09:12"));
-        ///
-        ///
-
-        ///
-//        List mensagens  = listaMensagens.get("o.professor");
-//        if(mensagens == null) {
-//            listaMensagens.put("o.professor", mensagens = new ArrayList<String>(1));
-//        }
-//        mensagens.add("teste 124312413 2");
-
-
+        viewPager = findViewById(R.id.pager);
+        pagerAdapter = new ScreenSlidePagerAdapter(this);
+        viewPager.setAdapter(pagerAdapter);
         //
-        ListView listaContato = findViewById(R.id.listaContatos);
+        //
+        ListaUsuarios.getListaDeUsuarios().addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+            }
+        });
+    }
 
-        listaContato.setAdapter(new MyAdapter());
+//    public void onBackPressed() {
+//        if (viewPager.getCurrentItem() == 0) {
+//            super.onBackPressed();
+//        } else {
+//            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+//        }
+//    }
+
+    private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+
+        Login fragLogin = new Login();
+        Contatos contatos = new Contatos();
+
+        public ScreenSlidePagerAdapter(FragmentActivity fa) {
+            super(fa);
+        }
+
+        @Override
+        public Fragment createFragment(int position) {
+            if(position == 0) {
+                return fragLogin;
+            }
+            if(position == 1) {
+                return contatos;
+            }
+            return null;
+        }
+
+        @Override
+        public int getItemCount() {
+            return 2;
+        }
     }
 }

@@ -29,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
         dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Dialog 1")
 //                .setMessage("Mostrando o dialogo.")
-                .setItems(new CharSequence[]{"SC", "PR", "RS"}, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Log.d("otes", "onClick: setItems : " + i);
-                    }
-                });
-//                .setPositiveButton("OKAY", new Dialog.OnClickListener() {
+//                .setItems(new CharSequence[]{"SC", "PR", "RS"}, new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        Log.d("otes", "onClick: Positive AlertDialog");
+//                        Log.d("otes", "onClick: setItems : " + i);
 //                    }
-//                })
+//                });
+                .setPositiveButton("OKAY", new Dialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Log.d("otes", "onClick: Positive AlertDialog");
+                    }
+                });
 //                .setNeutralButton("Neutral", new Dialog.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialogInterface, int i) {

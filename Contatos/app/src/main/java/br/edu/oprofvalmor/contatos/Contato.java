@@ -9,4 +9,8 @@ public class Contato {
         this.nome = nome;
         this.horario = horario;
     }
+
+    public int somar( int x, int y) {
+        return x+y;
+    }
 }

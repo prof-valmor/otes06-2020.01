@@ -38,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment createFragment(int position) {
-            return new ScreenSlideFrag(position);
+            if(position == 0) {
+                return  Contatos.getInstance();
+            }
+            return FragMensange.getInstance();
         }
 
         @Override
         public int getItemCount() {
-            return 4;
+            return 2;
         }
     }
 }
