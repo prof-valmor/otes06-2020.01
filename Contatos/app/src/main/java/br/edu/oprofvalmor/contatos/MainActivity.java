@@ -52,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
             ListaUsuarios.getListaDeUsuarios().addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
                 @Override
                 public void onPropertyChanged(Observable sender, int propertyId) {
+                    Runnable r = new Runnable() {
+                        @Override
+                        public void run() {
+                            viewPager.setCurrentItem(1);
+                        }
+                    };
+                    runOnUiThread(r);
 
                 }
             });
