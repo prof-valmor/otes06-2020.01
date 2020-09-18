@@ -37,7 +37,7 @@ public class Application implements MensagemListener {
 
     @Override
     public void onListaDeUsuariosChegando(List<String> usuarios) {
-//        Log.d("LISTA", "onListaDeUsuariosChegando: " + usuarios.toString());
+        Log.d("LISTA", "onListaDeUsuariosChegando: " + usuarios.toString());
         ListaUsuarios.getListaDeUsuarios().set(usuarios);
     }
 

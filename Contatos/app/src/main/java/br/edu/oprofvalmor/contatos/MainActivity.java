@@ -48,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
         public ScreenSlidePagerAdapter(FragmentActivity fa) {
             super(fa);
+            //
+            ListaUsuarios.getListaDeUsuarios().addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                @Override
+                public void onPropertyChanged(Observable sender, int propertyId) {
+
+                }
+            });
         }
 
         @Override
