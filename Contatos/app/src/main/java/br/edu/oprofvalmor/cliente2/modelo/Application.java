@@ -32,7 +32,7 @@ public class Application implements MensagemListener {
         String mensagem = header + userId + tail;
         //Atualizando o id do Usuario.
         Usuario.getInstance().setUserId(userId);
-       comunicador.falaComOServidor(mensagem);
+       comunicador.enfileraMensagem(mensagem);
     }
 
     @Override

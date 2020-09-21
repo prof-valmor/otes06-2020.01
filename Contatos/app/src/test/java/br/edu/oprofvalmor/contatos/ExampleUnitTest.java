@@ -15,14 +15,4 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 
-    @Test
-    public void teste01() {
-        Contato c = new Contato("valmor", "123");
-        int soma = c.somar(3,2);
-
-        assertEquals(5, soma);
-        assertEquals("valmor", c.nome);
-        assertEquals("123", c.horario);
-
-    }
 }

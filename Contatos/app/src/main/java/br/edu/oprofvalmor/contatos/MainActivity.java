@@ -24,13 +24,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
-        //
-        //
-        ListaUsuarios.getListaDeUsuarios().addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
-            @Override
-            public void onPropertyChanged(Observable sender, int propertyId) {
-            }
-        });
     }
 
 //    public void onBackPressed() {
@@ -43,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
 
-        Login fragLogin = new Login();
-        Contatos contatos = new Contatos();
+        Login fragLogin     = new Login();
+        Contatos contatos   = new Contatos();
+        Mensagens mensagens = new Mensagens();
 
         public ScreenSlidePagerAdapter(FragmentActivity fa) {
             super(fa);
@@ -69,15 +63,19 @@ public class MainActivity extends AppCompatActivity {
             if(position == 0) {
                 return fragLogin;
             }
-            if(position == 1) {
+            if((position == 1) && (viewPager.getCurrentItem() != 2)){
                 return contatos;
             }
+            if(position == 2) {
+                return mensagens;
+            }
+
             return null;
         }
 
         @Override
         public int getItemCount() {
-            return 2;
+            return 3;
         }
     }
 }
