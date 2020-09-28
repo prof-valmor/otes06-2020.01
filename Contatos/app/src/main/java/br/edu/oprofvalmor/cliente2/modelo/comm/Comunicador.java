@@ -84,7 +84,7 @@ public class Comunicador {
     private void falaComOServidor(String mensagem) {
         try{
             //abrindo o socket com o servidor.
-            socket = new Socket("10.0.0.106", 1408);
+            socket = new Socket("10.0.0.103", 1408);
             //
             PrintStream ps = new PrintStream(socket.getOutputStream());
             ps.println(mensagem);
